@@ -44,4 +44,5 @@ venv/
 ##############
 raw_data/
 output_data/
+acris_output
 

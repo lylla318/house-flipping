@@ -11,7 +11,7 @@
 		<key>connection</key>
 		<dict>
 			<key>database</key>
-			<string>acris</string>
+			<string>Annualized Sales Data</string>
 			<key>host</key>
 			<string>acris-dev.c1e2qqhlvvst.us-east-1.rds.amazonaws.com</string>
 			<key>kcid</key>
@@ -62,7 +62,7 @@
 			<key>contentSortColIsAsc</key>
 			<true/>
 			<key>contentViewport</key>
-			<string>{{0, 0}, {694, 450}}</string>
+			<string>{{0, 0}, {1006, 541}}</string>
 			<key>isToolbarVisible</key>
 			<true/>
 			<key>queries</key>
@@ -86,7 +86,7 @@ WHERE
 docs.docdate = "2010-11-3"; */
 
 
-SELECT * FROM real_property_parties as parties
+/*SELECT * FROM real_property_parties as parties
 JOIN
 real_property_legals lots
     ON
@@ -101,9 +101,12 @@ real_property_master docs
     lots.documentid = docs.documentid AND
     lots.documentid = parties.documentid
 WHERE
-docs.docdate = "2010-11-3";</string>
-			<key>table</key>
-			<string>real_property_parties</string>
+docs.docdate  "2010-11-3";*/
+
+
+SELECT * FROM sales as sales where sales.borough = 1 and sales.block ="876" and sales.lot ="7501" 
+
+</string>
 			<key>view</key>
 			<string>SP_VIEW_CUSTOMQUERY</string>
 			<key>windowVerticalDividerPosition</key>
@@ -136,20 +139,26 @@ WHERE
 docs.docdate = "2010-11-3"; */
 
 
-SELECT * FROM real_property_parties as parties
+/*SELECT * FROM real_property_parties as parties
 JOIN
 real_property_legals lots
     ON
     parties.documentid = lots.documentid AND
     lots.borough = 3 AND
-    lots.block = 199 AND
-    lots.lot = 3
+    lots.block = 2317 AND
+    lots.lot = 1
 JOIN
 real_property_master docs
     ON
     docs.documentid = parties.documentid AND
     lots.documentid = docs.documentid AND
-    lots.documentid = parties.documentid</string>
+    lots.documentid = parties.documentid
+WHERE
+docs.docdate  "2010-11-3";*/
+
+#SELECT * FROM sales as sales where sales.address LIKE "23 Gramercy%" 
+
+SELECT * FROM sales as sales where sales.borough = 1 and sales.block = 875 and sales.lot = 61</string>
 		<string>/* SELECT * FROM real_property_parties as parties
 JOIN
 real_property_legals lots
@@ -168,14 +177,14 @@ WHERE
 docs.docdate = "2010-11-3"; */
 
 
-SELECT * FROM real_property_parties as parties
+/*SELECT * FROM real_property_parties as parties
 JOIN
 real_property_legals lots
     ON
     parties.documentid = lots.documentid AND
     lots.borough = 3 AND
-    lots.block = 199 AND
-    lots.lot = 3
+    lots.block = 2317 AND
+    lots.lot = 1
 JOIN
 real_property_master docs
     ON
@@ -183,7 +192,11 @@ real_property_master docs
     lots.documentid = docs.documentid AND
     lots.documentid = parties.documentid
 WHERE
-docs.docdate = "2010-11-3"</string>
+docs.docdate  "2010-11-3";*/
+
+#SELECT * FROM sales as sales where sales.address LIKE "23 Gramercy%" 
+
+SELECT * FROM sales as sales where sales.borough = 1 and sales.block = 875 and sales.lot = 58</string>
 		<string>/* SELECT * FROM real_property_parties as parties
 JOIN
 real_property_legals lots
@@ -202,7 +215,7 @@ WHERE
 docs.docdate = "2010-11-3"; */
 
 
-SELECT * FROM real_property_parties as parties
+/*SELECT * FROM real_property_parties as parties
 JOIN
 real_property_legals lots
     ON
@@ -217,7 +230,11 @@ real_property_master docs
     lots.documentid = docs.documentid AND
     lots.documentid = parties.documentid
 WHERE
-docs.docdate = "2010-11-3"</string>
+docs.docdate  "2010-11-3";*/
+
+SELECT * FROM sales as sales where sales.address LIKE "23 Gramercy%" 
+
+SELECT * FROM sales as sales where sales.borough = 1 and sales.block = 875 and sales.lot = 58</string>
 		<string>/* SELECT * FROM real_property_parties as parties
 JOIN
 real_property_legals lots
@@ -236,71 +253,634 @@ WHERE
 docs.docdate = "2010-11-3"; */
 
 
-SELECT * FROM real_property_legals as lots where
+/*SELECT * FROM real_property_parties as parties
+JOIN
+real_property_legals lots
+    ON
+    parties.documentid = lots.documentid AND
     lots.borough = 3 AND
-    lots.block = 245 AND
-    lots.lot = 1001</string>
-		<string>/* select lots.block, lots.lot, lots.borough, count(*) as freq from real_property_master as docs 
-	JOIN real_property_legals as lots ON lots.documentid = docs.documentid
-where 
-docs.doctype = "DEED" and 
-docs.docdate &gt; "2014-01-01" and docs.docdate &lt; "2015-12-31" 
-group by lots.borough, lots.block, lots.lot order by freq desc; */
+    lots.block = 2317 AND
+    lots.lot = 1
+JOIN
+real_property_master docs
+    ON
+    docs.documentid = parties.documentid AND
+    lots.documentid = docs.documentid AND
+    lots.documentid = parties.documentid
+WHERE
+docs.docdate  "2010-11-3";*/
 
-select lots.block, lots.lot, lots.borough from real_property_master as docs JOIN real_property_legals as lots ON lots.documentid = docs.documentid
-	where lots.block = 2317 and lots.lot = 1 and lots.borough = 3</string>
-		<string>/* select lots.block, lots.lot, lots.borough, count(*) as freq from real_property_master as docs 
-	JOIN real_property_legals as lots ON lots.documentid = docs.documentid
-where 
-docs.doctype = "DEED" and 
-docs.docdate &gt; "2014-01-01" and docs.docdate &lt; "2015-12-31" 
-group by lots.borough, lots.block, lots.lot order by freq desc; */
+SELECT * FROM sales as sales where sales.address LIKE "23 Gramercy%" 
 
-select lots.block, lots.lot, lots.borough from real_property_master as docs JOIN real_property_legals as lots ON lots.documentid = docs.documentid
-	where lots.block = 2317 and lots.lot = 1 and lots.borough = 1</string>
-		<string>select lots.block, lots.lot, lots.borough, count(*) as freq from real_property_master as docs 
-	JOIN real_property_legals as lots ON lots.documentid = docs.documentid
-where 
-docs.doctype = "DEED" and 
-docs.docdate &gt; "2014-01-01" and docs.docdate &lt; "2015-12-31" 
-group by lots.borough, lots.block, lots.lot order by freq desc</string>
-		<string>select lots.block, lots.lot, lots.borough, count(*) as freq from real_property_master as docs 
-	JOIN real_property_legals as lots ON lots.documentid = documentid
-where 
-docs.doctype = "DEED" and 
-docs.docdate &gt; "2014-01-01" and docs.docdate &lt; "2015-12-31" 
-group by lots.borough, lots.block, lots.lot order by freq desc</string>
-		<string>select lots.block, lots.lot, lots.borough, count(*) as freq from real_property_master as docs 
-	JOIN real_property_legals as lots ON lots.documentid = documentid
-	where docs.doctype = "DEED" and docs.docdate &gt; "2014-01-01" and docs.docdate &lt; "2015-12-31" group by lots.borough, lots.block, lots.lot order by freq desc</string>
-		<string>select * from avroll as roll where roll.`BLOCK` = 876 and roll.`LOT` = 17 and roll.`BBLE` LIKE '1%'</string>
-		<string>#select * from avroll as roll where roll.`BLOCK` = 876 and roll.`LOT` = 17 and roll.`BBLE` LIKE '1%';
-select * from avroll as roll where roll.`BLOCK` = 876 and roll.`LOT` = 10 and roll.`BBLE` LIKE '1%'</string>
-		<string>select * from tc_234 as roll where roll.`BLOCK` = 876 and roll.`LOT` = 10 and roll.`BBLE` LIKE '1%'</string>
-		<string>0</string>
-		<string>select * from tc_234 as roll where roll.`BLOCK` = 876 and roll.`LOT` = 11 and roll.`BBLE` LIKE '1%'</string>
-		<string>select * from tc_234 as roll where roll.`BLOCK` = 876 and roll.`LOT` = 11
- and roll.`BBLE` LIKE '1%'</string>
-		<string>select * from tc_234 as roll where roll.`BLOCK` = 876 and roll.`LOT` = 10</string>
-		<string>select * from tc_234 as roll where `BLOCK` = 876 abd `LOT` = 10</string>
-		<string>#select * from tc_1 as a where a.`BLOCK` = 877 and a.`LOT` = 18
-#select * from tc_all as a where a.`BLOCK` = 877 and a.`LOT` = 18
-#select * from tc_all as a where a.`BLOCK` = 874 and a.`LOT` = 7503
+#SELECT * FROM sales as sales where sales.borough = 1 and sales.block = 877 and sales.lot = 13</string>
+		<string>/* SELECT * FROM real_property_parties as parties
+JOIN
+real_property_legals lots
+    ON
+    parties.documentid = lots.documentid AND
+    lots.borough = 3 AND
+    lots.block = 2317 AND
+    lots.lot = 1
+JOIN
+real_property_master docs
+    ON
+    docs.documentid = parties.documentid AND
+    lots.documentid = docs.documentid AND
+    lots.documentid = parties.documentid
+WHERE
+docs.docdate = "2010-11-3"; */
 
-select `BBLE`, `LND_AREA`, `GR_SQFT` from tc_234 as a where a.`BLOCK` = 876 and a.`LOT` = 33
-#select `BBLE`, `LND_AREA`, `GR_SQFT` from tc_1 as a where a.`BLOCK` = 874 and a.`LOT` = 7504</string>
-		<string>#select * from tc_1 as a where a.`BLOCK` = 877 and a.`LOT` = 18
-#select * from tc_all as a where a.`BLOCK` = 877 and a.`LOT` = 18
-#select * from tc_all as a where a.`BLOCK` = 874 and a.`LOT` = 7503
 
-select `BBLE`, `LND_AREA`, `GR_SQFT` from tc_234 as a where a.`BLOCK` = 876 and a.`LOT` = 34
-#select `BBLE`, `LND_AREA`, `GR_SQFT` from tc_1 as a where a.`BLOCK` = 874 and a.`LOT` = 7504</string>
-		<string>#select * from tc_1 as a where a.`BLOCK` = 877 and a.`LOT` = 18
-#select * from tc_all as a where a.`BLOCK` = 877 and a.`LOT` = 18
-#select * from tc_all as a where a.`BLOCK` = 874 and a.`LOT` = 7503
+/*SELECT * FROM real_property_parties as parties
+JOIN
+real_property_legals lots
+    ON
+    parties.documentid = lots.documentid AND
+    lots.borough = 3 AND
+    lots.block = 2317 AND
+    lots.lot = 1
+JOIN
+real_property_master docs
+    ON
+    docs.documentid = parties.documentid AND
+    lots.documentid = docs.documentid AND
+    lots.documentid = parties.documentid
+WHERE
+docs.docdate  "2010-11-3";*/
 
-select `BBLE`, `LND_AREA`, `GR_SQFT` from tc_234 as a where a.`BLOCK` = 876 and a.`LOT` = 7502
-#select `BBLE`, `LND_AREA`, `GR_SQFT` from tc_1 as a where a.`BLOCK` = 874 and a.`LOT` = 7504</string>
+SELECT * FROM sales as sales where sales.address LIKE "143 Gramercy%" 
+
+#SELECT * FROM sales as sales where sales.borough = 1 and sales.block = 877 and sales.lot = 13</string>
+		<string>/* SELECT * FROM real_property_parties as parties
+JOIN
+real_property_legals lots
+    ON
+    parties.documentid = lots.documentid AND
+    lots.borough = 3 AND
+    lots.block = 2317 AND
+    lots.lot = 1
+JOIN
+real_property_master docs
+    ON
+    docs.documentid = parties.documentid AND
+    lots.documentid = docs.documentid AND
+    lots.documentid = parties.documentid
+WHERE
+docs.docdate = "2010-11-3"; */
+
+
+/*SELECT * FROM real_property_parties as parties
+JOIN
+real_property_legals lots
+    ON
+    parties.documentid = lots.documentid AND
+    lots.borough = 3 AND
+    lots.block = 2317 AND
+    lots.lot = 1
+JOIN
+real_property_master docs
+    ON
+    docs.documentid = parties.documentid AND
+    lots.documentid = docs.documentid AND
+    lots.documentid = parties.documentid
+WHERE
+docs.docdate  "2010-11-3";*/
+
+SELECT * FROM sales as sales where sales.address LIKE "19 Gramercy%" 
+
+#SELECT * FROM sales as sales where sales.borough = 1 and sales.block = 877 and sales.lot = 13</string>
+		<string>/* SELECT * FROM real_property_parties as parties
+JOIN
+real_property_legals lots
+    ON
+    parties.documentid = lots.documentid AND
+    lots.borough = 3 AND
+    lots.block = 2317 AND
+    lots.lot = 1
+JOIN
+real_property_master docs
+    ON
+    docs.documentid = parties.documentid AND
+    lots.documentid = docs.documentid AND
+    lots.documentid = parties.documentid
+WHERE
+docs.docdate = "2010-11-3"; */
+
+
+/*SELECT * FROM real_property_parties as parties
+JOIN
+real_property_legals lots
+    ON
+    parties.documentid = lots.documentid AND
+    lots.borough = 3 AND
+    lots.block = 2317 AND
+    lots.lot = 1
+JOIN
+real_property_master docs
+    ON
+    docs.documentid = parties.documentid AND
+    lots.documentid = docs.documentid AND
+    lots.documentid = parties.documentid
+WHERE
+docs.docdate  "2010-11-3";*/
+
+SELECT * FROM sales as sales where sales.address LIKE "11 Gramercy%" 
+
+#SELECT * FROM sales as sales where sales.borough = 1 and sales.block = 877 and sales.lot = 13</string>
+		<string>/* SELECT * FROM real_property_parties as parties
+JOIN
+real_property_legals lots
+    ON
+    parties.documentid = lots.documentid AND
+    lots.borough = 3 AND
+    lots.block = 2317 AND
+    lots.lot = 1
+JOIN
+real_property_master docs
+    ON
+    docs.documentid = parties.documentid AND
+    lots.documentid = docs.documentid AND
+    lots.documentid = parties.documentid
+WHERE
+docs.docdate = "2010-11-3"; */
+
+
+/*SELECT * FROM real_property_parties as parties
+JOIN
+real_property_legals lots
+    ON
+    parties.documentid = lots.documentid AND
+    lots.borough = 3 AND
+    lots.block = 2317 AND
+    lots.lot = 1
+JOIN
+real_property_master docs
+    ON
+    docs.documentid = parties.documentid AND
+    lots.documentid = docs.documentid AND
+    lots.documentid = parties.documentid
+WHERE
+docs.docdate  "2010-11-3";*/
+
+SELECT * FROM sales as sales where sales.address LIKE "260 Park Avenue South%" 
+
+#SELECT * FROM sales as sales where sales.borough = 1 and sales.block = 877 and sales.lot = 13</string>
+		<string>/* SELECT * FROM real_property_parties as parties
+JOIN
+real_property_legals lots
+    ON
+    parties.documentid = lots.documentid AND
+    lots.borough = 3 AND
+    lots.block = 2317 AND
+    lots.lot = 1
+JOIN
+real_property_master docs
+    ON
+    docs.documentid = parties.documentid AND
+    lots.documentid = docs.documentid AND
+    lots.documentid = parties.documentid
+WHERE
+docs.docdate = "2010-11-3"; */
+
+
+/*SELECT * FROM real_property_parties as parties
+JOIN
+real_property_legals lots
+    ON
+    parties.documentid = lots.documentid AND
+    lots.borough = 3 AND
+    lots.block = 2317 AND
+    lots.lot = 1
+JOIN
+real_property_master docs
+    ON
+    docs.documentid = parties.documentid AND
+    lots.documentid = docs.documentid AND
+    lots.documentid = parties.documentid
+WHERE
+docs.docdate  "2010-11-3";*/
+
+SELECT * FROM sales as sales where sales.address LIKE "245 Park Avenue South%" 
+
+#SELECT * FROM sales as sales where sales.borough = 1 and sales.block = 877 and sales.lot = 13</string>
+		<string>/* SELECT * FROM real_property_parties as parties
+JOIN
+real_property_legals lots
+    ON
+    parties.documentid = lots.documentid AND
+    lots.borough = 3 AND
+    lots.block = 2317 AND
+    lots.lot = 1
+JOIN
+real_property_master docs
+    ON
+    docs.documentid = parties.documentid AND
+    lots.documentid = docs.documentid AND
+    lots.documentid = parties.documentid
+WHERE
+docs.docdate = "2010-11-3"; */
+
+
+/*SELECT * FROM real_property_parties as parties
+JOIN
+real_property_legals lots
+    ON
+    parties.documentid = lots.documentid AND
+    lots.borough = 3 AND
+    lots.block = 2317 AND
+    lots.lot = 1
+JOIN
+real_property_master docs
+    ON
+    docs.documentid = parties.documentid AND
+    lots.documentid = docs.documentid AND
+    lots.documentid = parties.documentid
+WHERE
+docs.docdate  "2010-11-3";*/
+
+SELECT * FROM sales as sales where sales.address LIKE "136 East 19th Street%" 
+
+#SELECT * FROM sales as sales where sales.borough = 1 and sales.block = 877 and sales.lot = 13</string>
+		<string>/* SELECT * FROM real_property_parties as parties
+JOIN
+real_property_legals lots
+    ON
+    parties.documentid = lots.documentid AND
+    lots.borough = 3 AND
+    lots.block = 2317 AND
+    lots.lot = 1
+JOIN
+real_property_master docs
+    ON
+    docs.documentid = parties.documentid AND
+    lots.documentid = docs.documentid AND
+    lots.documentid = parties.documentid
+WHERE
+docs.docdate = "2010-11-3"; */
+
+
+/*SELECT * FROM real_property_parties as parties
+JOIN
+real_property_legals lots
+    ON
+    parties.documentid = lots.documentid AND
+    lots.borough = 3 AND
+    lots.block = 2317 AND
+    lots.lot = 1
+JOIN
+real_property_master docs
+    ON
+    docs.documentid = parties.documentid AND
+    lots.documentid = docs.documentid AND
+    lots.documentid = parties.documentid
+WHERE
+docs.docdate  "2010-11-3";*/
+
+SELECT * FROM sales as sales where sales.address LIKE "78 Irving Place%" 
+
+#SELECT * FROM sales as sales where sales.borough = 1 and sales.block = 877 and sales.lot = 13</string>
+		<string>/* SELECT * FROM real_property_parties as parties
+JOIN
+real_property_legals lots
+    ON
+    parties.documentid = lots.documentid AND
+    lots.borough = 3 AND
+    lots.block = 2317 AND
+    lots.lot = 1
+JOIN
+real_property_master docs
+    ON
+    docs.documentid = parties.documentid AND
+    lots.documentid = docs.documentid AND
+    lots.documentid = parties.documentid
+WHERE
+docs.docdate = "2010-11-3"; */
+
+
+/*SELECT * FROM real_property_parties as parties
+JOIN
+real_property_legals lots
+    ON
+    parties.documentid = lots.documentid AND
+    lots.borough = 3 AND
+    lots.block = 2317 AND
+    lots.lot = 1
+JOIN
+real_property_master docs
+    ON
+    docs.documentid = parties.documentid AND
+    lots.documentid = docs.documentid AND
+    lots.documentid = parties.documentid
+WHERE
+docs.docdate  "2010-11-3";*/
+
+SELECT * FROM sales as sales where sales.address LIKE "18 Gramercy Park%" 
+
+#SELECT * FROM sales as sales where sales.borough = 1 and sales.block = 877 and sales.lot = 13</string>
+		<string>/* SELECT * FROM real_property_parties as parties
+JOIN
+real_property_legals lots
+    ON
+    parties.documentid = lots.documentid AND
+    lots.borough = 3 AND
+    lots.block = 2317 AND
+    lots.lot = 1
+JOIN
+real_property_master docs
+    ON
+    docs.documentid = parties.documentid AND
+    lots.documentid = docs.documentid AND
+    lots.documentid = parties.documentid
+WHERE
+docs.docdate = "2010-11-3"; */
+
+
+/*SELECT * FROM real_property_parties as parties
+JOIN
+real_property_legals lots
+    ON
+    parties.documentid = lots.documentid AND
+    lots.borough = 3 AND
+    lots.block = 2317 AND
+    lots.lot = 1
+JOIN
+real_property_master docs
+    ON
+    docs.documentid = parties.documentid AND
+    lots.documentid = docs.documentid AND
+    lots.documentid = parties.documentid
+WHERE
+docs.docdate  "2010-11-3";*/
+
+SELECT * FROM sales as sales where sales.address LIKE "22 Gramercy Park%" 
+
+#SELECT * FROM sales as sales where sales.borough = 1 and sales.block = 877 and sales.lot = 13</string>
+		<string>/* SELECT * FROM real_property_parties as parties
+JOIN
+real_property_legals lots
+    ON
+    parties.documentid = lots.documentid AND
+    lots.borough = 3 AND
+    lots.block = 2317 AND
+    lots.lot = 1
+JOIN
+real_property_master docs
+    ON
+    docs.documentid = parties.documentid AND
+    lots.documentid = docs.documentid AND
+    lots.documentid = parties.documentid
+WHERE
+docs.docdate = "2010-11-3"; */
+
+
+/*SELECT * FROM real_property_parties as parties
+JOIN
+real_property_legals lots
+    ON
+    parties.documentid = lots.documentid AND
+    lots.borough = 3 AND
+    lots.block = 2317 AND
+    lots.lot = 1
+JOIN
+real_property_master docs
+    ON
+    docs.documentid = parties.documentid AND
+    lots.documentid = docs.documentid AND
+    lots.documentid = parties.documentid
+WHERE
+docs.docdate  "2010-11-3";*/
+
+SELECT * FROM sales as sales where sales.address LIKE "36 Gramercy Park%" 
+
+#SELECT * FROM sales as sales where sales.borough = 1 and sales.block = 877 and sales.lot = 13</string>
+		<string>/* SELECT * FROM real_property_parties as parties
+JOIN
+real_property_legals lots
+    ON
+    parties.documentid = lots.documentid AND
+    lots.borough = 3 AND
+    lots.block = 2317 AND
+    lots.lot = 1
+JOIN
+real_property_master docs
+    ON
+    docs.documentid = parties.documentid AND
+    lots.documentid = docs.documentid AND
+    lots.documentid = parties.documentid
+WHERE
+docs.docdate = "2010-11-3"; */
+
+
+/*SELECT * FROM real_property_parties as parties
+JOIN
+real_property_legals lots
+    ON
+    parties.documentid = lots.documentid AND
+    lots.borough = 3 AND
+    lots.block = 2317 AND
+    lots.lot = 1
+JOIN
+real_property_master docs
+    ON
+    docs.documentid = parties.documentid AND
+    lots.documentid = docs.documentid AND
+    lots.documentid = parties.documentid
+WHERE
+docs.docdate  "2010-11-3";*/
+
+SELECT * FROM sales as sales where sales.address LIKE "50 Gramercy Park%" 
+
+#SELECT * FROM sales as sales where sales.borough = 1 and sales.block = 877 and sales.lot = 13</string>
+		<string>/* SELECT * FROM real_property_parties as parties
+JOIN
+real_property_legals lots
+    ON
+    parties.documentid = lots.documentid AND
+    lots.borough = 3 AND
+    lots.block = 2317 AND
+    lots.lot = 1
+JOIN
+real_property_master docs
+    ON
+    docs.documentid = parties.documentid AND
+    lots.documentid = docs.documentid AND
+    lots.documentid = parties.documentid
+WHERE
+docs.docdate = "2010-11-3"; */
+
+
+/*SELECT * FROM real_property_parties as parties
+JOIN
+real_property_legals lots
+    ON
+    parties.documentid = lots.documentid AND
+    lots.borough = 3 AND
+    lots.block = 2317 AND
+    lots.lot = 1
+JOIN
+real_property_master docs
+    ON
+    docs.documentid = parties.documentid AND
+    lots.documentid = docs.documentid AND
+    lots.documentid = parties.documentid
+WHERE
+docs.docdate  "2010-11-3";*/
+
+#SELECT * FROM sales as sales where sales.address LIKE "50 Gramercy Park%" 
+
+#SELECT * FROM sales as sales where sales.borough = 1 and sales.block = 877 and sales.lot = 13</string>
+		<string>/* SELECT * FROM real_property_parties as parties
+JOIN
+real_property_legals lots
+    ON
+    parties.documentid = lots.documentid AND
+    lots.borough = 3 AND
+    lots.block = 2317 AND
+    lots.lot = 1
+JOIN
+real_property_master docs
+    ON
+    docs.documentid = parties.documentid AND
+    lots.documentid = docs.documentid AND
+    lots.documentid = parties.documentid
+WHERE
+docs.docdate = "2010-11-3"; */
+
+
+/*SELECT * FROM real_property_parties as parties
+JOIN
+real_property_legals lots
+    ON
+    parties.documentid = lots.documentid AND
+    lots.borough = 3 AND
+    lots.block = 2317 AND
+    lots.lot = 1
+JOIN
+real_property_master docs
+    ON
+    docs.documentid = parties.documentid AND
+    lots.documentid = docs.documentid AND
+    lots.documentid = parties.documentid
+WHERE
+docs.docdate  "2010-11-3";*/
+
+#SELECT * FROM sales as sales where sales.address LIKE "7 Gramercy Park%" 
+
+SELECT * FROM sales as sales where sales.borough = 1 and sales.block = 877 and sales.lot = 13</string>
+		<string>/* SELECT * FROM real_property_parties as parties
+JOIN
+real_property_legals lots
+    ON
+    parties.documentid = lots.documentid AND
+    lots.borough = 3 AND
+    lots.block = 2317 AND
+    lots.lot = 1
+JOIN
+real_property_master docs
+    ON
+    docs.documentid = parties.documentid AND
+    lots.documentid = docs.documentid AND
+    lots.documentid = parties.documentid
+WHERE
+docs.docdate = "2010-11-3"; */
+
+
+/*SELECT * FROM real_property_parties as parties
+JOIN
+real_property_legals lots
+    ON
+    parties.documentid = lots.documentid AND
+    lots.borough = 3 AND
+    lots.block = 2317 AND
+    lots.lot = 1
+JOIN
+real_property_master docs
+    ON
+    docs.documentid = parties.documentid AND
+    lots.documentid = docs.documentid AND
+    lots.documentid = parties.documentid
+WHERE
+docs.docdate  "2010-11-3";*/
+
+#SELECT * FROM sales as sales where sales.address LIKE "7 Gramercy Park%" 
+
+SELECT * FROM sales as sales where sales.borough = 1 and sales.block = 876 and sales.lot = 7503</string>
+		<string>/* SELECT * FROM real_property_parties as parties
+JOIN
+real_property_legals lots
+    ON
+    parties.documentid = lots.documentid AND
+    lots.borough = 3 AND
+    lots.block = 2317 AND
+    lots.lot = 1
+JOIN
+real_property_master docs
+    ON
+    docs.documentid = parties.documentid AND
+    lots.documentid = docs.documentid AND
+    lots.documentid = parties.documentid
+WHERE
+docs.docdate = "2010-11-3"; */
+
+
+/*SELECT * FROM real_property_parties as parties
+JOIN
+real_property_legals lots
+    ON
+    parties.documentid = lots.documentid AND
+    lots.borough = 3 AND
+    lots.block = 2317 AND
+    lots.lot = 1
+JOIN
+real_property_master docs
+    ON
+    docs.documentid = parties.documentid AND
+    lots.documentid = docs.documentid AND
+    lots.documentid = parties.documentid
+WHERE
+docs.docdate  "2010-11-3";*/
+
+#SELECT * FROM sales as sales where sales.address LIKE "7 Gramercy Park%" 
+
+SELECT * FROM sales as sales where sales.borough = 1 and sales.block = 876 and sales.lot = 7501</string>
+		<string>/* SELECT * FROM real_property_parties as parties
+JOIN
+real_property_legals lots
+    ON
+    parties.documentid = lots.documentid AND
+    lots.borough = 3 AND
+    lots.block = 2317 AND
+    lots.lot = 1
+JOIN
+real_property_master docs
+    ON
+    docs.documentid = parties.documentid AND
+    lots.documentid = docs.documentid AND
+    lots.documentid = parties.documentid
+WHERE
+docs.docdate = "2010-11-3"; */
+
+
+/*SELECT * FROM real_property_parties as parties
+JOIN
+real_property_legals lots
+    ON
+    parties.documentid = lots.documentid AND
+    lots.borough = 3 AND
+    lots.block = 2317 AND
+    lots.lot = 1
+JOIN
+real_property_master docs
+    ON
+    docs.documentid = parties.documentid AND
+    lots.documentid = docs.documentid AND
+    lots.documentid = parties.documentid
+WHERE
+docs.docdate  "2010-11-3";*/
+
+#SELECT * FROM sales as sales where sales.address LIKE "7 Gramercy Park%" 
+
+SELECT * FROM sales as sales where sales.borough = 1 and sales.block = 875 and sales.lot = 7502</string>
 	</array>
 	<key>rdbms_type</key>
 	<string>mysql</string>
